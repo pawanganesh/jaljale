@@ -34,33 +34,45 @@
 <div class="h-[80vh]">
   <!-- Swiper Slider -->
 <div class="swiper mySwiper">
- <div class="absolute z-10 px-custom text-center flex gap-5 flex-col items-center justify-center w-full h-full bg-black/60 text-white">
-   <h1 class="text-4xl font-bold">Construction</h1>
-   <p class="px-5 md:px-0">We provide best quality services. Build your dream sooner or later!</p>
-   <div class="flex gap-5">
-    <button
-    class="bg-primary text-white px-3 py-2 rounded-lg hover:opacity-90"
-  >
-    Contact Us
-  </button>
-    <button
-    class="bg-primary text-white px-3 py-2 rounded-lg hover:opacity-90"
-  >
-    Know More
-  </button>
-   </div>
-  </div>
+
+
+
  <div class="swiper-wrapper">
-   {%for banner in banners %}
+  {%for banner in banners %}
+
    <div class="swiper-slide">
+    <div class="absolute z-10 px-custom text-center flex gap-5 flex-col items-center justify-center w-full h-full bg-black/60 text-white">
+
+      <h1 class="text-4xl font-bold">{{banner.title}}</h1>
+      <p class="px-5 md:px-0">{{banner.description}}</p>
+      <div class="flex gap-5">
+       <a href="{% url 'home:contact-us' %}">
+        <button
+        class="bg-primary text-white px-3 py-2 rounded-lg hover:opacity-90"
+      >
+        Contact Us
+      </button>
+       </a>
+
+       <a href="{% url 'home:about-us' %}">
+        <button
+        class="bg-primary text-white px-3 py-2 rounded-lg hover:opacity-90"
+      >
+        Know More
+      </button>
+       </a>
+      </div>
+     </div>
      <img
        class="w-full object-cover"
        src="{{banner.image.url}}"
        alt="{{banner.title}}"
      />
    </div>
-    {% endfor %}
+ {% endfor %}
+
  </div>
+
  <!-- Next and previous buttons -->
  <div class="swiper-button-next"></div>
  <div class="swiper-button-prev"></div>
